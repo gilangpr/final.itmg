@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ITMG | LOGIN</title>
+		
+		<!-- Start : CSS -->
+		<link rel="stylesheet" href="<?php echo $this->baseUrl('resources/css/ext-all.css')?>" type="text/css" />
+		<!-- End of : CSS -->
+		<!-- Start : JS -->
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/ext-all.js')?>"></script>
+		<script type="text/javascript">
+			Ext.define('sharedData', {
+				singleton: true,
+				baseUrl: '<?php echo $this->baseUrl()?>'
+			});
+		</script>
+		<!-- End of : JS -->
+		<style type="text/css">
+			body {
+				/*background-color: #4998d0;*/
+				background-color: #030305;
+				background-image: url(<?php echo $this->baseUrl('images/back1.jpg')?>);
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+			div#logo {
+				margin: 0 auto;
+				width: 900px;
+				overflow: hidden;
+				text-align: center;
+				margin-top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="logo">
+		<img src="<?php echo $this->baseUrl('/images/logo.png')?>" />
+	</div>
+	<?php echo $this->layout()->content . "\n"?>
+	</body>
+</html>

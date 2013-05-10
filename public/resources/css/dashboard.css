@@ -1,0 +1,36 @@
+body{
+	overflow: hidden;
+}
+.head {
+	background:#4998d0 url(../../images/headerbg.png) top right no-repeat;
+	height: 100px;
+}
+.logo {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.strong {
+	font-weight: 800;
+}
+.logout-box {
+	position: absolute;
+	right: 20px;
+	background-color: #fff;
+	padding: 4px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	margin-top: -4px;
+	color: #36a7e4;
+	font-weight: 800;
+	padding-top: 6px;
+	font-size: 12px;
+	font-family: Arial, sans-serif;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+.logout-box a {
+	color: #36a7e4;
+	text-decoration: none;
+}

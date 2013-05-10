@@ -1,0 +1,67 @@
+/* Icon CSS */
+
+.icon-accept {
+	background-image: url(../../images/icons/icon_accept.gif) !important;
+}
+
+.icon-stop {
+	background-image: url(../../images/icons/action_stop.gif) !important;
+}
+
+.icon-go {
+	background-image: url(../../images/icons/action_go.gif) !important;
+}
+
+.icon-search {
+	background-image: url(../../images/icons/page_find.gif) !important;
+}
+
+.icon-detail {
+	background-image: url(../../images/icons/interface_dialog.gif) !important;
+}
+
+.icon-attachment {
+	background-image: url(../../images/icons/icon_attachment.gif) !important;
+}
+
+.icon-download {
+	background-image: url(../../images/icons/icon_download.gif) !important;
+}
+
+.icon-user {
+	background-image: url(../../images/icons/icon_user.gif) !important;
+}
+
+.icon-component {
+	background-image: url(../../images/icons/list_components.gif) !important;
+}
+
+.icon-left {
+	background-image: url(../../images/icons/action_back.gif) !important;
+}
+
+.icon-right {
+	background-image: url(../../images/icons/action_forward.gif) !important;
+}
+.icon-print {
+	background-image: url(../../images/icons/action_print.gif) !important;
+}
+.icon-options {
+	background-image: url(../../images/icons/page_settings.gif) !important;
+}
+
+/* Icon 2 */
+
+.icon2-accept {
+	background: url(../../images/icons2/check-64.gif) left center no-repeat !important;
+	padding-left: 26px;
+	width: 80px;
+	height: 34px;
+}
+
+.icon2-delete {
+	background: url(../../images/icons2/delete_2.gif) left center no-repeat !important;
+	padding-left: 26px;
+	width: 80px;
+	height: 34px;
+}

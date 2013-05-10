@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ITMG | Executive</title>
+		
+		<!-- Start : CSS -->
+		<link rel="stylesheet" href="<?php echo $this->baseUrl('resources/css/ext-all.css')?>" type="text/css" />
+		<link rel="stylesheet" href="<?php echo $this->baseUrl('resources/css/dashboard.css')?>" type="text/css" />
+		<link rel="stylesheet" href="<?php echo $this->baseUrl('resources/css/icons.css')?>" type="text/css" />
+		<!-- End of : CSS -->
+		<!-- Start : JS -->
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/ext-all.js')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/jquery.min.js')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/executive.js')?>"></script>
+		
+		<script type="text/javascript" src="<?php echo $this->baseUrl('apps/js/models')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('apps/js/stores')?>"></script>
+		
+		
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/searchInvestors.js')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/searchPeers.js')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/searchShareholdings.js')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/searchResearchReports.js')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/searchNews.js')?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('resources/js/searchShareprices.js')?>"></script>
+		
+		<script type="text/javascript" src="<?php echo $this->baseUrl('app.js')?>"></script>
+		<script type="text/javascript">
+			Ext.define('sd', {
+				singleton: true,
+				baseUrl: '<?php echo $this->baseUrl()?>',
+				nav: {
+					width: 130,
+					height: 26
+				},
+				content: {
+					height: 200
+				}
+			});
+			Ext.onReady(function(){
+				var tbar = new Array();
+				var t = [{
+					xtype: 'button',
+					text: 'Investors',
+					height: sd.nav.height,
+					width: sd.nav.width
+				},{
+					xtype: 'button',
+					text: 'Shareholdings',
+					height: sd.nav.height,
+					width: sd.nav.width
+				},{
+					xtype: 'button',
+					text: 'Peers',
+					height: sd.nav.height,
+					width: sd.nav.width
+				},{
+					xtype: 'button',
+					text: 'Shareprices',
+					height: sd.nav.height,
+					width: sd.nav.width
+				},{
+					xtype: 'button',
+					text: 'Research Reports',
+					height: sd.nav.height,
+					width: sd.nav.width
+				},{
+					xtype: 'button',
+					text: 'News',
+					height: sd.nav.height,
+					width: sd.nav.width
+				}];
+				
+				// Add Toolbar Listeners :
+				var idx = 0;
+				Ext.each(t, function(c, i) {
+					t[i].listeners = {
+						click: function() {
+							loadContent(this);
+						}
+					}
+					tbar[idx] = t[i];
+					
+					if(i < t.length - 1) {
+						tbar[idx+1] = '-';
+						idx+=2;
+					}
+				});
+				
+				var x = Ext.create('Ext.panel.Panel', {
+					renderTo: document.getElementById('nav'),
+					border: false,
+					tbar: tbar,
+					id: 'big-panel'
+				});
+
+				Ext.create('Ext.tab.Panel', {
+					id: 'main-content',
+					height: Ext.getBody().getViewSize().height - $('.head').height() - $("#nav").height() - 1,
+					renderTo: document.getElementById('content')
+				});
+
+				Ext.EventManager.onWindowResize(function() {
+					var content = Ext.getCmp('main-content');
+					content.height = Ext.getBody().getViewSize().height - $('.head').height() - $("#nav").height() - 1;
+					content.doLayout();
+				});
+			});
+			
+		</script>
+		<!-- End of : JS -->
+	</head>
+	<body>
+		<div class="logout-box">
+			<p>Welcome, <?php echo $this->active_user ?> | <a href="<?php echo $this->url(array('module'=>'dashboard','controller'=>'login','action'=>'logout'),null,true)?>"><img src="<?php echo $this->baseUrl('images/logout.png')?>"/> Logout</a></p>
+		</div>
+		<div class="head">
+			<img class="logo" src="<?php echo $this->baseUrl('images/logo.png')?>" />
+		</div>
+		<div id="nav"></div>
+		<div id="content" style="margin-top: 1px">
+			<?php echo $this->layout()->content . "\n"?>
+		</div>
+	</body>
+</html>

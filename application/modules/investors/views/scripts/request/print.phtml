@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript">
+			window.print();
+		</script>
+		<link rel="stylesheet" media="print" href="<?php echo $this->baseUrl('/resources/css/print.css');?>" type="text/css" />
+		<link rel="stylesheet" media="screen" href="<?php echo $this->baseUrl('/resources/css/print.css');?>" type="text/css" />
+		<script type="text/javascript" src="<?php echo $this->baseUrl('/resources/js/ext-all.js');?>"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl('/resources/js/jquery.min.js');?>"></script>
+		<title><?php echo $this->details['COMPANY_NAME'] ?></title>
+	</head>
+	<body>
+		<div id="content">
+			<div id="header">
+				<center><h2><?php echo $this->details['COMPANY_NAME']?></h2></center>
+			</div>
+			<div id="detail">
+				<div id="dkiri">
+					<div id="head">
+					<h4>Detail</h4>
+					</div>
+					<div id="alignki">
+						<div id="title1"> Equity Asset : </div> 
+							<div id="isi"><?php echo $this->details['EQUITY_ASSETS']?></div>
+						<div id="title1"> Investor Type : </div> 
+							<div id="isi"><?php echo $this->details['INVESTOR_TYPE']?></div>
+						<div id="title1"> Style : </div> 
+							<div id="isi"><?php echo $this->details['STYLE'] ?></div>
+						<div id="title1"> Latest Update :  </div> 
+							<div id="isi"><?php echo $this->details['MODIFIED_DATE'] ?></div>		
+					</div>					
+				</div>
+				<div id="dkanan">
+					<div id="head">
+					<h4>Company Address</h4>
+					</div>
+					
+					<div id="alignka">
+						<div id="address">
+							<?php echo $this->details['ADDRESS']?><br>
+							<?php echo $this->details['LOCATION']?>
+						</div>
+						<div id="phone">
+							Phone : <?php echo $this->details['PHONE_1'] ?><br/>
+							Fax : <?php echo $this->details['FAX'] ?><br>
+							Website: <?php echo $this->details['WEBSITE'] ?>
+						</div> 
+					</div>					
+				</div>	
+			</div>
+			<div id="detail2">
+				<div id="head2">
+					<h4>Company Overview</h4>
+				</div>
+				<?php echo $this->details['COMPANY_OVERVIEW'];?>
+			</div>
+			<div id="detail2">
+				<div id="head2">
+					<h4>Invesment Strategy</h4>
+				</div>
+				<?php echo $this->details['INVESTMENT_STRATEGY'];?>
+			</div>
+			<div id="bawah">
+				<div id="head2">
+					<center><h4>Key Person</h4></center>
+				</div>
+				<?php foreach ($this->con as $data) {
+					 echo "<b>".$data['NAME']."</b> ".$data['POSITION']." (".$data['PHONE_1'].") <br>";
+				}?>
+				
+
+			</div>	
+			<div id="bawah">
+				<div id="head2">
+					<center><h4>Meeting Activities</h4></center>
+				</div>
+				<table>
+				<?php
+					
+					/*foreach ($this->ma as $meeting) {
+						//$in=count($meeting['INITIAL_PART']);
+						//if($in>1){
+						echo "   ".$meeting['MEETING_DATE']."&nbsp &nbsp &nbsp <b>".$meeting['MEETING_EVENT']."</b> &nbsp &nbsp &nbsp".
+						$meeting['NAME']."&nbsp &nbsp &nbsp".$meeting['POSITION'].
+						"&nbsp &nbsp &nbsp";
+							foreach ($this->ma as $meet) {
+								if ($meet['MEETING_EVENT']==$meeting['MEETING_EVENT']) {
+								echo $meet['INITIAL_PART']." . ";	
+								}
+								
+							}
+							echo "<br>";
+							<table>
+							<tr>
+								<td class="date"><b>Date</b></td>
+								<td><b><center>Meeting Event</center></b></td>
+								<td>Name</td>
+								<td>Initial</td>
+							</tr>
+						//}
+					}*/
+					$temp = "";
+					$i=0;
+					foreach ($this->ma as $meeting=>$m) {
+						if($temp == ""){
+							$temp = $m["MEETING_ACTIVITIE_ID"];
+							/*$meeting_date[$i]["MEETING_DATE"] = "";
+							$meeting_event[$i]["MEETING_EVENT"] = "";*/
+							$name[$i]["NAME"] = "";
+							$initial[$i]["INITIAL_PART"] = "";
+						}
+						if ($temp != $m['MEETING_ACTIVITIE_ID']) {
+							$i++;
+							$temp = $m["MEETING_ACTIVITIE_ID"];
+							/*$meeting_date[$i]["MEETING_DATE"] = "";
+							$meeting_event[$i]["MEETING_EVENT"] = "";*/
+							$name[$i]["NAME"] = "";
+							$initial[$i]["INITIAL_PART"] = "";
+						}
+						if(!isset($meeting_id[$i]["MEETING_ACTIVITIE_ID"])) {
+							$originalDate = $m['MEETING_DATE'];
+							$newDate = date("d-m-Y", strtotime($originalDate));
+							$meeting_id[$i]['MEETING_ACTIVITIE_ID'] = $m['MEETING_ACTIVITIE_ID'];	
+							$meeting_date[$i]['MEETING_DATE'] = $newDate;
+							$meeting_event[$i]['MEETING_EVENT'] = $m['MEETING_EVENT'];
+							//$this->_data['data']['items'][$_i]['NOTES'] = $d['NOTES'];
+						}
+
+						echo "<tr><td class='date'><center>".$meeting_date[$i]['MEETING_DATE']."</center></td><td><b>".$meeting_event[$i]['MEETING_EVENT']."</b></td><td>";
+						foreach ($this->mc as $meetingc =>$c) {
+							if ($meeting_id[$i]['MEETING_ACTIVITIE_ID'] == $c['MEETING_ACTIVITIE_ID'] ){
+								
+									echo $c['NAME'].",";
+							}
+						}
+						foreach ($this->pa as $meetingp =>$p) {
+							if ($meeting_id[$i]['MEETING_ACTIVITIE_ID'] == $p['MEETING_ACTIVITIE_ID']){
+								
+									echo $p['NAME'].",";
+							}
+						}
+						echo "</td><td>";
+						foreach ($this->mp as $meeetingmp=>$mp) {
+							if ($meeting_id[$i]['MEETING_ACTIVITIE_ID'] == $mp['MEETING_ACTIVITIE_ID']){
+								echo $mp['INITIAL_PART'].".";	
+								}
+								
+							}
+							echo "</td></tr>";
+							//echo "<br>";
+						//}
+					}
+					echo "</table>";
+				?>
+			</div>
+			<div id="detail3">
+					<div id="headSec">
+						<h4>Sector Holdings</h4>
+					</div>
+					<div id="headPor">
+						<h4>Portfolio Distribution</h4>
+					</div>
+			</div>	
+					<script type="text/javascript">
+					 	/*
+						 * Sector Holdings
+						 */
+						
+						Ext.define("SectorHolding", { extend: "Ext.data.Model", fields: [{"name":"SECTOR_HOLDING_ID","type":"int"},{"name":"INVESTOR_ID","type":"int"},{"name":"TITLE","type":"string"},{"name":"VALUE","type":"float"},{"name":"CREATED_DATE","type":"string"},{"name":"MODIFIED_DATE","type":"string"}] });
+						var storeSE = Ext.create('Ext.data.Store', {
+							model: 'SectorHolding',
+							storeId: 'SectorHoldings',
+							proxy: {
+								extraParams:{
+									id:<?php echo $this->details['INVESTOR_ID'];?>
+								},
+						        type: "ajax",
+						        api: {
+						            "read": "\/sectorholdings\/request\/read",
+						            "create": "\/sectorholdings\/request\/create",
+						            "update": "\/sectorholdings\/request\/update",
+						            "destroy": "\/sectorholdings\/request\/destroy"
+						        },
+						        actionMethods: {
+						            "create": "POST",
+						            "destroy": "POST",
+						            "read": "POST",
+						            "update": "POST"
+						        },
+						        reader: {
+						            "idProperty": "TITLE",
+						            "type": "json",
+						            "root": "data.items",
+						            "totalProperty": "data.totalCount"
+						        },
+						        writer: {
+						            "type": "json",
+						            "root": "data",
+						            "writeAllFields": true
+						        }
+						    },
+						    sorter: {
+						        "property": "TITLE",
+						        "direction": "ASC"
+						    }
+						});
+						storeSE.load();
+					
+						/*
+						 * End of : Sector Holdings
+						 */
+					
+    					var panel1 = Ext.create('widget.panel',{					   
+					    renderTo: Ext.getBody(),
+					    width: 370,
+						height: 200,
+						style: {
+							float: 'left',
+							width: '50%'
+						},
+					    layout: 'fit',
+					    items: [{
+								xtype: 'chart',
+								store: storeSE,
+								id:'chartCmp',
+								animate: true,
+								legend: {
+									position: 'right'
+								},
+								series: [{
+									type: 'pie',
+									field: 'VALUE',
+									showInLegend: true,
+									highlight: {
+										segment: {
+											margin: 20
+										}
+									},
+									label: {
+										display: 'rotate',
+						                  'text-anchor': 'middle',
+						                field: 'TITLE',
+						                orientation: 'horizontal',
+						                fill: '#FFF',
+						                font: '12px Arial',
+						                renderer: function (label){
+								            // this will change the text displayed on the pie
+								            var cmp = Ext.getCmp('chartCmp'); // id of the chart
+								            var index = cmp.store.findExact('TITLE', label); // the field containing the current label
+								            var data = cmp.store.getAt(index).data;
+								            return data.VALUE + '%'; // the field containing the label to display on the chart
+						          		}
+									}
+								}]
+							}]
+							
+					   });
+					
+					</script>
+										
+					<script type="text/javascript">
+					/*
+					 * Portfolio Distributions
+					 */
+					Ext.define("PortfolioDistribution", { extend: "Ext.data.Model", fields: [{"name":"PORTFOLIO_DISTRIBUTION_ID","type":"int"},{"name":"PORTFOLIO_DISTRIBUTION_ID","type":"int"},{"name":"INVESTOR_ID","type":"int"},{"name":"TITLE","type":"string"},{"name":"VALUE","type":"float"},{"name":"CREATED_DATE","type":"string"},{"name":"MODIFIED_DATE","type":"string"}] });
+					var storePD = Ext.create('Ext.data.Store', {
+						model: 'PortfolioDistribution',
+						storeId: 'PortfolioDistributions',
+						proxy: {
+							extraParams:{id:<?php echo $this->details['INVESTOR_ID']; ?>},
+					        "type": "ajax",
+					        "api": {
+					            "read": "\/portfoliodistribution\/request\/read",
+					            "create": "\/portfoliodistribution\/request\/create",
+					            "update": "\/portfoliodistribution\/request\/update",
+					            "destroy": "\/portfoliodistribution\/request\/destroy"
+					        },
+					        "actionMethods": {
+					            "create": "POST",
+					            "destroy": "POST",
+					            "read": "POST",
+					            "update": "POST"
+					        },
+					        "reader": {
+					            "idProperty": "TITLE",
+					            "type": "json",
+					            "root": "data.items",
+					            "totalProperty": "data.totalCount"
+					        },
+					        "writer": {
+					            "type": "json",
+					            "root": "data",
+					            "writeAllFields": true
+					        }
+					    },
+					    sorter: {
+					        "property": "TITLE",
+					        "direction": "ASC"
+					    },
+					});
+					
+					storePD.load();
+					
+					var panel2 = Ext.create('widget.panel',{					   
+					    renderTo: Ext.getBody(),
+					    width: 370,
+					    style: {
+							float: 'right',
+							width: '50%'
+						},
+						height: 200,
+					    layout: 'fit',
+					    items: [{
+							xtype: 'chart',
+							animate: {
+								easing: 'bounceOut',
+								duration: 400
+							},
+							store: storePD,
+							shadow: true,
+							width: 580,
+							height: 300,
+							style: 'background: #FFF',
+							theme: 'Base:gradients',
+							axes: [{
+								type: 'Numeric',
+								position: 'left',
+								fields: ['VALUE'],
+								label: {
+									renderer: Ext.util.Format.numberRenderer('0,0')
+								},
+								grid: true,
+								minimum: 0
+							},{
+								type: 'Category',
+								position: 'bottom',
+								fields: ['TITLE'],
+							}],
+							series: [{
+								type: 'column',
+								axis: 'left',
+								highlight: true,
+								label: {
+									display: 'insideEnd',
+					                  'text-anchor': 'middle',
+					                   field: 'VALUE',
+					                   orientation: 'horizontal',
+					                   fill: '#FFF',
+					                   font: '14px Arial'
+								},
+								xField: 'TITLE',
+					            yField: 'VALUE'
+							}]
+						}]
+					
+					   });
+					</script>
+		</div>
+	</body>
+</html>

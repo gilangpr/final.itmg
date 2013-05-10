@@ -1,0 +1,264 @@
+@media print,screen{
+	body{
+	font-size: 10pt;
+	font-family: Arial;
+	padding: 0;
+	width: 900px;
+	font-color:green;
+	text-align: justify;
+	
+	}
+	table{
+		font-size: 10pt;
+		font-family: Arial;
+		width: 882px;
+		border-collapse: collapse;
+		margin: auto;
+
+	}
+	td{
+		
+		vertical-align: top;
+		border: 1px solid #0099CC;
+		padding: 1px;
+
+	}
+	td.date{
+		
+		width:80px ;
+		vertical-align: top;
+		border: 1px solid #0099CC;
+
+	}
+	div#content{
+		position: relative;
+		width: 900px;
+		min-height: 500px;
+		border: 1px solid gray;
+		
+	}
+	div#header{
+		width: 890px;
+		min-height: 30px;
+		margin: 5px;
+		display: block;
+		position: relative;
+		border: 1px solid gray;
+		text-shadow: 0.1em 0.1em 0.05em white;
+		/*background-color: #2eac2b;*/
+		/* Mozzila 3.6+ */
+		background: -moz-linear-gradient(top, #0099CC ,#66FFCC);
+		 /* Safari 4-5, Chrome 1-9 */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66FFCC), to(#0099CC));
+		/* Safari 5.1, Chrome 10+ */ 
+		background: -webkit-linear-gradient(top, #0099CC ,#66FFCC);
+		/* IE 10 */ 
+		background: -ms-linear-gradient(top, #0099CC ,#66FFCC);
+		/* Opera 11.10+ */ 
+		background: -o-linear-gradient(top, #0099CC ,#66FFCC);
+	}
+	#head{
+		width:425px;
+		height: 40px;
+		margin: 5px;
+		color:black;
+		padding-left: 5px;
+		border: 1px solid gray;
+		text-shadow: 0.1em 0.1em 0.05em white;
+		position: relative;
+		/* Mozzila 3.6+ */
+		background: -moz-linear-gradient(top, #0099CC ,#66FFCC);
+		 /* Safari 4-5, Chrome 1-9 */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66FFCC), to(#0099CC));
+		/* Safari 5.1, Chrome 10+ */ 
+		background: -webkit-linear-gradient(top, #0099CC ,#66FFCC);
+		/* IE 10 */ 
+		background: -ms-linear-gradient(top, #0099CC ,#66FFCC);
+		/* Opera 11.10+ */ 
+		background: -o-linear-gradient(top, #0099CC ,#66FFCC);
+	}
+	#headSec{
+		width:430px;
+		height: 40px;
+		margin: 5px;
+		color:black;
+		padding-left: 5px;
+		border: 1px solid gray;
+		float: left;
+		text-shadow: 0.1em 0.1em 0.05em white;
+		position: relative;
+		/* Mozzila 3.6+ */
+		background: -moz-linear-gradient(top, #0099CC ,#66FFCC);
+		 /* Safari 4-5, Chrome 1-9 */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66FFCC), to(#0099CC));
+		/* Safari 5.1, Chrome 10+ */ 
+		background: -webkit-linear-gradient(top, #0099CC ,#66FFCC);
+		/* IE 10 */ 
+		background: -ms-linear-gradient(top, #0099CC ,#66FFCC);
+		/* Opera 11.10+ */ 
+		background: -o-linear-gradient(top, #0099CC ,#66FFCC);
+	}
+	#headPor{
+		width:430px;
+		height: 40px;
+		margin: 5px;
+		color:black;
+		float: right;
+		padding-left: 5px;
+		border: 1px solid gray;
+		text-shadow: 0.1em 0.1em 0.05em white;
+		position: relative;
+		/* Mozzila 3.6+ */
+		background: -moz-linear-gradient(top, #0099CC ,#66FFCC);
+		 /* Safari 4-5, Chrome 1-9 */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66FFCC), to(#0099CC));
+		/* Safari 5.1, Chrome 10+ */ 
+		background: -webkit-linear-gradient(top, #0099CC ,#66FFCC);
+		/* IE 10 */ 
+		background: -ms-linear-gradient(top, #0099CC ,#66FFCC);
+		/* Opera 11.10+ */ 
+		background: -o-linear-gradient(top, #0099CC ,#66FFCC);
+	}
+	#head2{
+		width:875px;
+		height: 40px;
+		margin: 0px;
+		color:black;
+		padding-left: 5px;
+		border: 1px solid gray;
+		text-shadow: 0.1em 0.1em 0.05em white;
+		position: relative;
+		/* Mozzila 3.6+ */
+		background: -moz-linear-gradient(top, #0099CC ,#66FFCC);
+		 /* Safari 4-5, Chrome 1-9 */ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66FFCC), to(#0099CC));
+		/* Safari 5.1, Chrome 10+ */ 
+		background: -webkit-linear-gradient(top, #0099CC ,#66FFCC);
+		/* IE 10 */ 
+		background: -ms-linear-gradient(top, #0099CC ,#66FFCC);
+		/* Opera 11.10+ */ 
+		background: -o-linear-gradient(top, #0099CC ,#66FFCC);
+	}
+	#detail{
+		width: 889px;
+		position: relative;
+		margin: 5px;
+		min-height: 140px;
+		border: 1px solid gray;
+		background: #e6ecef;
+	}
+	#bawah{
+		width: 880px;
+		position: relative;
+		margin: 5px;
+		padding: 5px;
+		min-height: 70px;
+		border: 1px solid gray;
+		background: #e6ecef;
+	}
+	#baris{
+		width: 880px;
+		position: relative;
+		border: :1px solid gray;
+		min-height: 20px;
+	}
+	#date{
+		width: 50px;
+		position: relative;
+	}
+	#event{
+		width: 200px;
+		position: relative;
+	}
+	#name{
+		width: 300px;
+		position: relative;
+	}
+	#initial{
+		width: 50px;
+		position: relative;
+	}
+	#detail2{
+		width: 880px;
+		position: relative;
+		margin: 5px;
+		padding: 5px;
+		border: 1px solid gray;
+		background: #e6ecef;
+		min-height: 100px;
+	}
+	#detail3{
+		width: 899px;
+		position: relative;
+		min-height: 65px;
+	}
+	#dkiri{
+		width: 440px;
+		float: left;
+		position: relative;
+		
+	}
+	#sector{
+		width: 448px;
+		float: left;
+		min-height: 350px;
+		position: relative;
+		
+	}
+	#sector1{
+		width: 447px;
+		float: left;
+		border: 1px solid gray;
+		min-height: 296px;
+		position: relative;
+		
+	}
+	#portfolio{
+		width: 449px;
+		float: left;
+		min-height: 250px;
+		position: relative;
+	}
+	#alignka{
+		text-align: left;
+		float: left;
+		margin-right: 0px;
+	}
+	#alignka{
+		text-align: right;
+		float: right;
+		margin-right: 0px;
+	}
+	#address{
+		text-align: left;
+		float: left;
+		width: 215px;
+		padding-left: 5px;
+	}
+	#phone{
+		text-align: right;
+		float: right;
+		padding-right: 5px;
+		width: 215px;
+	}
+	#dkanan{
+		width: 440px;
+		float: right;
+		position: relative;
+	}
+	#title1{
+		text-align: left;
+		float: left;
+		width: 215px;
+		padding-left: 5px;
+	}
+	#isi{
+		text-align: right;
+		float: right;
+		padding-right: 5px;
+		width: 215px;
+	}
+	img{
+		margin-top: 10px;
+	}
+}
